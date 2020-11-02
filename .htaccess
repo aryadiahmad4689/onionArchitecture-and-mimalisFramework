@@ -1,0 +1,36 @@
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -Indexes
+    </IfModule>
+    <IfModule mod_autoindex.c>
+        IndexOptions FancyIndexing 
+    </IfModule>
+    
+    <ifModule mod_php7.c>
+        php_value zlib.output_compression 16386
+    </ifModule>
+
+    RewriteEngine On
+    # Handle Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+
+    ErrorDocument 400 /
+    ErrorDocument 401 /
+    ErrorDocument 403 /
+    ErrorDocument 404 /
+    ErrorDocument 500 /
+
+    <Files ~ "^.*\.((php[^(index.php)])|(sparkle)|(config)|(lock)|(json)|(md)|(log)|(txt)|(env)|(yml))">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+    </Files>
+    <Files ~ "(.*LICENSE)">
+    Order allow,deny
+    Deny from all
+    Satisfy All
+    </Files>
+
+</IfModule>

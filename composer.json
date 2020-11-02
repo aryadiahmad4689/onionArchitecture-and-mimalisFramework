@@ -1,0 +1,32 @@
+{
+    "name": "aryadiahmad4689/phpfw",
+    "description": "One stop solution for your starter point",
+    "keywords": [
+        "Phpfw",
+        "PHP",
+        "PHP Framework"
+    ],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Ariadi Ahmad",
+            "email": "padaelocomunity2@gmail.com"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "Phpfw\\Component\\": "vendor/phpfw/framework",
+            "Phpfw\\App\\": "app",
+            "Billing\\": "Billing"
+        },
+        "files": [
+            "vendor/phpfw/framework/Support/helpers.php"
+        ]
+    },
+    "require": {
+        "phpunit/phpunit": "^8.0",
+        "psr/http-message": "^1.0",
+        "doctrine/orm": "^2.7",
+        "doctrine/migrations": "^2.2"
+    }
+}
